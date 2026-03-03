@@ -122,24 +122,47 @@
                 別再讓重複的工作拖垮你的利潤。我們為你部署 24 小時不休息、不請假、不情緒化的「超級 AI 員工」，讓老闆專注於真正的決策與賺錢。
             </p>
 
-            <!-- 新增：Email 引流表單區塊 -->
+            <!-- 新增：企業降本計算器引流區塊 -->
             <div class="max-w-2xl mx-auto mb-10">
-                <div class="bg-slate-900/80 backdrop-blur-xl border border-sky-500/30 rounded-2xl p-6 sm:p-8 shadow-2xl">
-                    <h3 class="text-white font-bold text-lg mb-4 flex items-center justify-center gap-2">
-                        <i data-lucide="file-text" class="text-sky-400"></i>
-                        免費領取《台灣企業 AI 降本手冊》
+                <div class="bg-slate-900/80 backdrop-blur-xl border-2 border-sky-500/50 rounded-2xl p-6 sm:p-10 shadow-2xl">
+                    <h3 class="text-white font-bold text-2xl mb-6 flex items-center justify-center gap-2">
+                        <i data-lucide="calculator" class="text-sky-400"></i>
+                        你的企業一年能多賺多少錢？
                     </h3>
-                    <form class="flex flex-col sm:flex-row gap-3">
-                        <input type="email" placeholder="輸入您的 Email" class="flex-grow bg-slate-800 border border-slate-700 rounded-full px-5 py-3 text-white focus:outline-none focus:border-sky-500 transition">
-                        <button type="submit" class="bg-sky-500 hover:bg-sky-400 text-white px-8 py-3 rounded-full font-bold transition shadow-lg shadow-sky-500/20 whitespace-nowrap">
-                            立即下載手冊
+                    <p class="text-slate-400 mb-6 text-sm">輸入你的部門人數與平均月薪，我們直接算出 AI 為你省下的「純利潤」。</p>
+                    <div class="flex flex-col gap-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="number" id="staffCount" placeholder="部門人數" class="bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500">
+                            <input type="number" id="avgSalary" placeholder="平均月薪" class="bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500">
+                        </div>
+                        <button onclick="calculateROI()" class="bg-sky-500 hover:bg-sky-400 text-white px-8 py-4 rounded-full font-black text-xl transition shadow-lg shadow-sky-500/40 whitespace-nowrap uppercase tracking-widest">
+                            計算我的純利潤
                         </button>
-                    </form>
-                    <p class="text-slate-500 text-[10px] sm:text-xs mt-4">
-                        * 已有 1,200+ 位台灣企業主下載，內容包含地產、車行、餐飲 AI 實戰案例
-                    </p>
+                    </div>
+                    <div id="roiResult" class="hidden mt-8 p-6 bg-sky-500/10 border border-sky-500/30 rounded-xl text-center">
+                        <p class="text-sky-400 text-sm mb-2">估計每年可節省成本 (即增加純利)：</p>
+                        <p class="text-white text-4xl font-black" id="roiAmount">NT$ 0</p>
+                        <p class="text-slate-500 text-xs mt-4">* 此計算基於 CLAWBOT 全自動化取代 70% 重複性行政流程之平均數據</p>
+                    </div>
                 </div>
             </div>
+
+            <script>
+                function calculateROI() {
+                    const count = document.getElementById('staffCount').value;
+                    const salary = document.getElementById('avgSalary').value;
+                    if (count && salary) {
+                        const yearlySavings = Math.round(count * salary * 12 * 0.7); // 假設省下 70% 人力
+                        document.getElementById('roiAmount').innerText = 'NT$ ' + yearlySavings.toLocaleString();
+                        document.getElementById('roiResult').classList.remove('hidden');
+                        
+                        // 自動滾動到結果
+                        document.getElementById('roiResult').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        alert('請輸入人數與薪資以進行計算');
+                    }
+                }
+            </script>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                 <a href="#pricing" class="w-full sm:w-auto px-8 py-3 sm:py-3.5 bg-sky-500 hover:bg-sky-400 text-white rounded-full font-semibold text-base sm:text-lg transition shadow-lg shadow-sky-500/20">

@@ -190,47 +190,91 @@
         <!-- 裝飾光暈 -->
         <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-sky-500/10 blur-[120px] rounded-full pointer-events-none"></div>
         <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 rounded-full bg-slate-800/50 border border-slate-700 text-sky-300 text-[10px] sm:text-xs font-semibold mb-6 sm:mb-8 backdrop-blur-sm whitespace-nowrap">
-                <i data-lucide="zap" class="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-sky-400 text-sky-400"></i>
-                台灣企業 AI 落地首選方案
+            <!-- 社會證明徽章 -->
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-[10px] sm:text-xs font-semibold mb-6 sm:mb-8 backdrop-blur-sm whitespace-nowrap animate-pulse">
+                <span class="w-2 h-2 bg-emerald-400 rounded-full"></span>
+                本月已有 3 家企業啟動 AI 改造
             </div>
 
+            <!-- 主標題：痛點衝擊 -->
             <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4 sm:mb-6 leading-tight text-balance mx-auto">
-                讓 AI 幫你 <br class="hidden sm:block md:hidden" />
-                <span class="text-gradient inline-block mt-1 sm:mt-0">一年省下百萬人事費</span>
+                老闆，你一天花多少時間<br/>
+                <span class="text-gradient inline-block mt-1 sm:mt-2">在不該你做的事上？</span>
             </h1>
 
-            <div class="mb-8 sm:mb-10">
-                <p class="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent drop-shadow-sm">
-                    " 柴犬麻糬吉哥創造千萬播放，MasterBlue 藍教主帶你實現數位轉型。 "
-                </p>
-            </div>
-
-            <p class="text-base sm:text-lg md:text-xl text-slate-400 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed text-balance">
-                別再讓重複的工作拖垮你的利潤。我們為你部署 24 小時不休息、不請假、不情緒化的「超級 AI 員工」，讓老闆專注於真正的決策與賺錢。
+            <!-- 副標題：故事共鳴 -->
+            <p class="text-base sm:text-lg md:text-xl text-slate-400 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed text-balance">
+                盯報表、回客服、管勞健保、做教育訓練⋯⋯<br class="hidden sm:block"/>
+                這些事吃掉你 <span class="text-white font-bold">60% 的時間</span>，卻只創造 <span class="text-white font-bold">10% 的利潤</span>。
             </p>
 
-            <!-- 新增：企業降本計算器引流區塊 -->
-            <div class="max-w-2xl mx-auto mb-10">
-                <div class="bg-slate-900/80 backdrop-blur-xl border-2 border-sky-500/50 rounded-2xl p-6 sm:p-10 shadow-2xl">
-                    <h3 class="text-white font-bold text-2xl mb-6 flex items-center justify-center gap-2">
-                        <i data-lucide="calculator" class="text-sky-400"></i>
-                        你的企業一年能多賺多少錢？
+            <!-- 解法：一句話定位 -->
+            <div class="mb-8 sm:mb-10 max-w-2xl mx-auto">
+                <div class="bg-slate-900/60 border border-sky-500/20 rounded-2xl p-5 sm:p-6">
+                    <p class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">
+                        我們幫你把這些人力 <span class="text-sky-400">全部釋放</span>
+                    </p>
+                    <p class="text-slate-400 text-sm sm:text-base">
+                        讓 AI 接管重複性工作，讓你回歸<span class="text-sky-300 font-semibold">展店、選品、談判、決策</span>——真正值錢的事。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 數據佐證 -->
+            <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto mb-8 sm:mb-10">
+                <div class="text-center">
+                    <p class="text-2xl sm:text-3xl font-black text-white">70<span class="text-sky-400">%</span></p>
+                    <p class="text-[11px] sm:text-xs text-slate-500 mt-1">人力成本釋放</p>
+                </div>
+                <div class="text-center border-x border-slate-800">
+                    <p class="text-2xl sm:text-3xl font-black text-white">24<span class="text-sky-400">H</span></p>
+                    <p class="text-[11px] sm:text-xs text-slate-500 mt-1">AI 不休息不請假</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-2xl sm:text-3xl font-black text-white">3<span class="text-sky-400">倍</span></p>
+                    <p class="text-[11px] sm:text-xs text-slate-500 mt-1">老闆決策時間</p>
+                </div>
+            </div>
+
+            <!-- CTA 按鈕 -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10">
+                <a href="https://line.me/ti/p/tfH7deB1fh" class="w-full sm:w-auto px-8 py-3.5 sm:py-4 bg-sky-500 hover:bg-sky-400 text-white rounded-full font-bold text-base sm:text-lg transition shadow-lg shadow-sky-500/30 flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    免費預約 2H AI 降本診斷
+                </a>
+                <a href="#why" class="w-full sm:w-auto px-8 py-3 sm:py-3.5 bg-slate-800/50 border border-slate-700 hover:border-sky-500 hover:text-sky-400 text-slate-300 rounded-full font-semibold text-base sm:text-lg transition backdrop-blur-sm flex items-center justify-center gap-1">
+                    看成功案例 <i data-lucide="chevron-down" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                </a>
+            </div>
+
+            <!-- 信任背書 -->
+            <p class="text-xs text-slate-600 mb-2">千萬播放 IP 實證</p>
+            <div class="flex items-center justify-center gap-6 text-slate-500 text-xs">
+                <span class="flex items-center gap-1.5"><span class="text-base">🐕</span> 柴犬吉哥 · 千萬播放</span>
+                <span class="text-slate-700">|</span>
+                <span class="flex items-center gap-1.5"><span class="text-base">🚗</span> 藍教主 · 百萬粉絲</span>
+                <span class="text-slate-700">|</span>
+                <span class="flex items-center gap-1.5"><span class="text-base">🏢</span> 松滿吉整合行銷</span>
+            </div>
+
+            <!-- 計算器移到下方，變成輔助工具 -->
+            <div class="max-w-xl mx-auto mt-12 sm:mt-16">
+                <div class="bg-slate-900/50 backdrop-blur-xl border border-slate-800 rounded-2xl p-5 sm:p-8">
+                    <h3 class="text-white font-bold text-lg sm:text-xl mb-4 flex items-center justify-center gap-2">
+                        <i data-lucide="calculator" class="text-sky-400 w-5 h-5"></i>
+                        快速試算：你的企業能省多少？
                     </h3>
-                    <p class="text-slate-400 mb-6 text-sm">輸入你的部門人數與平均月薪，我們直接算出 AI 為你省下的「純利潤」。</p>
-                    <div class="flex flex-col gap-4">
-                        <div class="grid grid-cols-2 gap-4">
-                            <input type="number" id="staffCount" placeholder="部門人數" class="bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500">
-                            <input type="number" id="avgSalary" placeholder="平均月薪" class="bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500">
-                        </div>
-                        <button onclick="calculateROI()" class="bg-sky-500 hover:bg-sky-400 text-white px-8 py-4 rounded-full font-black text-xl transition shadow-lg shadow-sky-500/40 whitespace-nowrap uppercase tracking-widest">
-                            計算我的純利潤
-                        </button>
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <input type="number" id="staffCount" placeholder="部門人數" class="bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-sky-500">
+                        <input type="number" id="avgSalary" placeholder="平均月薪" class="bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-sky-500">
                     </div>
-                    <div id="roiResult" class="hidden mt-8 p-6 bg-sky-500/10 border border-sky-500/30 rounded-xl text-center">
-                        <p class="text-sky-400 text-sm mb-2">估計每年可節省成本 (即增加純利)：</p>
-                        <p class="text-white text-4xl font-black" id="roiAmount">NT$ 0</p>
-                        <p class="text-slate-500 text-xs mt-4">* 此計算基於 CLAWBOT 全自動化取代 70% 重複性行政流程之平均數據</p>
+                    <button onclick="calculateROI()" class="w-full bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/30 px-6 py-3 rounded-full font-semibold text-sm transition">
+                        計算我的純利潤 →
+                    </button>
+                    <div id="roiResult" class="hidden mt-6 p-4 bg-sky-500/10 border border-sky-500/30 rounded-xl text-center">
+                        <p class="text-sky-400 text-xs mb-1">估計每年可釋放成本：</p>
+                        <p class="text-white text-3xl font-black" id="roiAmount">NT$ 0</p>
+                        <a href="https://line.me/ti/p/tfH7deB1fh" class="inline-block mt-3 text-sm text-sky-400 hover:text-sky-300 font-semibold underline">預約診斷，看實際能省多少 →</a>
                     </div>
                 </div>
             </div>
@@ -240,26 +284,16 @@
                     const count = document.getElementById('staffCount').value;
                     const salary = document.getElementById('avgSalary').value;
                     if (count && salary) {
-                        const yearlySavings = Math.round(count * salary * 12 * 0.7); // 假設省下 70% 人力
+                        const yearlySavings = Math.round(count * salary * 12 * 0.7);
                         document.getElementById('roiAmount').innerText = 'NT$ ' + yearlySavings.toLocaleString();
                         document.getElementById('roiResult').classList.remove('hidden');
-                        
-                        // 自動滾動到結果
                         document.getElementById('roiResult').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        if(typeof gtag === 'function') gtag('event', 'roi_calculated', {event_category:'engagement', value: yearlySavings});
                     } else {
-                        alert('請輸入人數與薪資以進行計算');
+                        alert('請輸入人數與薪資');
                     }
                 }
             </script>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                <a href="https://line.me/ti/p/tfH7deB1fh" class="w-full sm:w-auto px-8 py-3 sm:py-3.5 bg-sky-500 hover:bg-sky-400 text-white rounded-full font-semibold text-base sm:text-lg transition shadow-lg shadow-sky-500/20">
-                    了解解決方案
-                </a>
-                <a href="#why" class="w-full sm:w-auto px-8 py-3 sm:py-3.5 bg-slate-800/50 border border-slate-700 hover:border-sky-500 hover:text-sky-400 text-slate-300 rounded-full font-semibold text-base sm:text-lg transition backdrop-blur-sm flex items-center justify-center gap-1">
-                    看 AI 如何幫我賺錢 <i data-lucide="chevron-down" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-                </a>
-            </div>
         </div>
     </section>
     <!-- Why AI ROI Section -->

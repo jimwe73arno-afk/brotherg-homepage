@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#4FC3F7">
+<title>BROTHERG.AI - AI Visual Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg-color: #0B1929;
+--accent-color: #4FC3F7;
+--text-main: #FFFFFF;
+--text-muted: #8E9EBA;
+--bg-darker: #060F1A;
+}
+* {
+box-sizing: border-box;
+-webkit-tap-highlight-color: transparent;
+margin: 0;
+padding: 0;
+}
+body {
+background-color: var(--bg-color);
+color: var(--text-main);
+font-family: 'Noto Sans TC', 'Rajdhani', sans-serif;
+line-height: 1.5;
+-webkit-font-smoothing: antialiased;
+overflow-x: hidden;
+}
+header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+padding: 20px 24px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 1000;
+background: rgba(11, 25, 41, 0.85);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+transition: all 0.3s ease;
+}
+.logo {
+font-family: 'Rajdhani', sans-serif;
+font-size: 24px;
+font-weight: 700;
+letter-spacing: 2px;
+color: #FFFFFF;
+text-decoration: none;
+}
+.lang-toggle {
+background: none;
+border: 1px solid rgba(255, 255, 255, 0.3);
+color: #FFFFFF;
+padding: 6px 16px;
+border-radius: 50px;
+font-family: 'Rajdhani', sans-serif;
+font-weight: 700;
+font-size: 14px;
+cursor: pointer;
+transition: all 0.3s;
+}
+.lang-toggle:hover {
+border-color: var(--accent-color);
+color: var(--accent-color);
+}
+.hero {
+position: relative;
+width: 100%;
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+overflow: hidden;
+background: var(--bg-darker);
+}
+.hero-placeholder {
+position: absolute;
+top: 0; left: 0; width: 100%; height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: rgba(79, 195, 247, 0.15);
+font-family: 'Rajdhani', sans-serif;
+font-size: 2rem;
+letter-spacing: 10px;
+z-index: 1;
+border: 1px dashed rgba(79, 195, 247, 0.2);
+}
+.hero-content {
+position: relative;
+z-index: 2;
+padding: 0 24px;
+width: 100%;
+max-width: 1200px;
+}
+.hero h1 {
+font-size: clamp(2.5rem, 10vw, 6.5rem);
+font-weight: 900;
+line-height: 1.1;
+margin-bottom: 16px;
+text-transform: uppercase;
+font-family: 'Rajdhani', sans-serif;
+letter-spacing: -1px;
+color: var(--accent-color);
+text-shadow: 0 0 40px rgba(79, 195, 247, 0.4);
+}
+.hero p {
+font-size: clamp(0.9rem, 4vw, 1.5rem);
+color: #FFFFFF;
+font-weight: 700;
+letter-spacing: 2px;
+text-transform: uppercase;
+line-height: 1.4;
+}
+section {
+padding: 80px 24px;
+max-width: 1440px;
+margin: 0 auto;
+}
+.section-header {
+margin-bottom: 40px;
+}
+.section-header h2 {
+font-size: clamp(2rem, 8vw, 4rem);
+font-weight: 900;
+line-height: 1.1;
+color: #FFFFFF;
+font-family: 'Rajdhani', sans-serif;
+text-transform: uppercase;
+}
+.section-header .accent-line {
+width: 40px;
+height: 4px;
+background-color: var(--accent-color);
+margin-top: 16px;
+}
+.industries-section {
+padding-top: 24px;
+padding-bottom: 64px;
+}
+.industries-list {
+display: flex;
+flex-direction: column;
+}
+.industry-btn {
+font-size: clamp(2rem, 8vw, 8rem);
+font-family: 'Rajdhani', sans-serif;
+font-weight: 900;
+color: var(--accent-color);
+text-transform: uppercase;
+text-decoration: none;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 24px 0;
+border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+line-height: 1.1;
+}
+.industry-btn:active {
+transform: translateY(-8px) scale(1.02);
+text-shadow: 0 12px 24px rgba(79, 195, 247, 0.5);
+color: #FFFFFF;
+}
+.industry-btn-arrow {
+font-size: 1.5rem;
+color: #FFFFFF;
+transition: transform 0.3s;
+}
+.industry-btn:active .industry-btn-arrow {
+transform: translateX(8px);
+color: var(--accent-color);
+}
+.contact-section {
+padding: 64px 24px 120px 24px;
+text-align: center;
+}
+.contact-headline {
+font-size: clamp(2rem, 8vw, 4rem);
+font-weight: 900;
+margin-bottom: 48px;
+font-family: 'Rajdhani', sans-serif;
+text-transform: uppercase;
+line-height: 1.2;
+}
+.contact-links {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 16px;
+}
+.contact-btn {
+display: flex;
+align-items: center;
+gap: 12px;
+font-size: 1.1rem;
+font-weight: 700;
+color: #FFFFFF;
+text-decoration: none;
+padding: 18px 32px;
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 100px;
+transition: all 0.3s;
+width: 100%;
+max-width: 350px;
+justify-content: center;
+background: rgba(255, 255, 255, 0.02);
+}
+.contact-btn:active {
+background: rgba(79, 195, 247, 0.1);
+transform: scale(0.98);
+}
+.contact-btn svg {
+width: 20px;
+height: 20px;
+fill: currentColor;
+}
+.email-link {
+font-family: 'Rajdhani', sans-serif;
+font-size: clamp(1.2rem, 5vw, 2.5rem);
+font-weight: 700;
+color: var(--accent-color);
+text-decoration: none;
+display: inline-block;
+margin-bottom: 40px;
+position: relative;
+}
+.floating-socials {
+position: fixed;
+right: 12px;
+top: 50%;
+transform: translateY(-50%);
+display: flex;
+flex-direction: column;
+gap: 10px;
+z-index: 1000;
+}
+.floating-socials a {
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background: rgba(11, 25, 41, 0.85);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+color: #FFFFFF;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s;
+box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.floating-socials svg {
+width: 18px;
+height: 18px;
+fill: currentColor;
+}
+footer {
+padding: 32px 24px;
+display: flex;
+flex-direction: column;
+align-items: center;
+border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.copyright {
+font-family: 'Rajdhani', sans-serif;
+color: var(--text-muted);
+font-size: 0.85rem;
+letter-spacing: 2px;
+}
+@media (min-width: 768px) {
+section { padding: 160px 64px; }
+.section-header .accent-line { width: 60px; }
+.industries-section { padding-top: 60px; padding-bottom: 120px; }
+.industries-list {
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+gap: 2vw;
+}
+.industry-btn {
+display: block;
+font-size: clamp(1.8rem, 3.5vw, 4.5rem);
+text-align: center;
+color: var(--accent-color);
+-webkit-text-stroke: 0px transparent;
+border-bottom: none;
+padding: 0;
+width: 100%;
+transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.industry-btn:hover {
+color: #FFFFFF;
+transform: translateY(-4px);
+}
+.industry-btn:active {
+color: #FFFFFF;
+transform: translateY(-12px) scale(1.05);
+text-shadow: 0 15px 30px rgba(79, 195, 247, 0.6);
+}
+.industry-btn-arrow { display: none; }
+.contact-links { flex-direction: row; justify-content: center; }
+.contact-btn { max-width: 250px; }
+.contact-btn:hover {
+border-color: var(--accent-color);
+background: rgba(79, 195, 247, 0.05);
+transform: translateY(-4px);
+color: var(--accent-color);
+}
+.floating-socials { right: 24px; gap: 16px; }
+.floating-socials a { width: 52px; height: 52px; }
+.floating-socials a:hover {
+background: var(--accent-color);
+color: var(--bg-darker);
+transform: scale(1.1) translateX(-4px);
+border-color: var(--accent-color);
+}
+.floating-socials svg { width: 22px; height: 22px; }
+}
+</style>
+</head>
+<body data-lang="zh">
+<div class="floating-socials">
+<a href="https://brotherg.ai" target="_blank" rel="noopener noreferrer" aria-label="Website">
+<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm6.91 8h-3.46a16.5 16.5 0 0 0-1.28-4.73A8.028 8.028 0 0 1 18.91 10zM12 4.04a14.54 14.54 0 0 1 1.76 5.96h-3.52A14.54 14.54 0 0 1 12 4.04zM5.09 10h3.46a16.5 16.5 0 0 0 1.28-4.73A8.028 8.028 0 0 1 5.09 10zm0 4a8.028 8.028 0 0 1 3.08 4.73A16.5 16.5 0 0 0 9.45 14zm5.15 5.96A14.54 14.54 0 0 1 8.48 14h3.52zm1.76 0a14.54 14.54 0 0 1-1.76-5.96h3.52A14.54 14.54 0 0 1 12 19.96zm4.17-1.23a16.5 16.5 0 0 0 1.28-4.73h3.46a8.028 8.028 0 0 1-4.74 4.73z"/></svg>
+</a>
+<a href="https://www.instagram.com/brotherg.ai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+<svg viewBox="0 0 24 24"><path d="M16 6H8c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-4 9c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zm3.5-5.5c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z"/></svg>
+</a>
+<a href="https://www.tiktok.com/@brotherg.ai" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+<svg viewBox="0 0 24 24"><path d="M14.5 5h-2v8.5c0 1.4-1.1 2.5-2.5 2.5S7.5 14.9 7.5 13.5 8.6 11 10 11v-2c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5V8c1.5 1 3.5 1 3.5 1V7s-1.5 0-3.5-2z"/></svg>
+</a>
+<a href="https://www.youtube.com/@Brothergai168" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+<svg viewBox="0 0 24 24"><path d="M10 15.5v-7l6 3.5-6 3.5z"/></svg>
+</a>
+<a href="https://www.facebook.com/brothergai/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+<svg viewBox="0 0 24 24"><path d="M15.3 8H13V6.2c0-.8.5-1.1 1.1-1.1h1.2V2.6c-.2 0-1-.1-2-.1-2.2 0-3.6 1.3-3.6 3.8V8H7.5v3.3h2.2v8.7h3.3v-8.7h2.7l.6-3.3z"/></svg>
+</a>
+</div>
+<header>
+<a href="#" class="logo">BROTHERG.AI</a>
+<button class="lang-toggle" id="langBtn">EN</button>
+</header>
+<section class="hero">
+<div class="hero-placeholder">[ FULLSCREEN SHOWREEL VIDEO ]</div>
+<div class="hero-content">
+<h1 data-zh="顛覆真實的邊界。" data-en="REAL ISN'T REAL ANYMORE.">顛覆真實的邊界。</h1>
+<p data-zh="我們鑄造，掠奪目光的絕對視覺" data-en="WE CREATE VISUALS THAT MAKE PEOPLE STOP AND STARE.">我們鑄造，掠奪目光的絕對視覺</p>
+</div>
+</section>
+<section class="industries-section">
+<div class="section-header">
+<h2 data-zh="跨界領域" data-en="INDUSTRIES">跨界領域</h2>
+<div class="accent-line"></div>
+</div>
+<div class="industries-list">
+<a href="#" class="industry-btn">
+<span data-zh="汽車" data-en="AUTOMOTIVE">汽車</span>
+<span class="industry-btn-arrow">→</span>
+</a>
+<a href="#" class="industry-btn">
+<span data-zh="時尚" data-en="FASHION">時尚</span>
+<span class="industry-btn-arrow">→</span>
+</a>
+<a href="#" class="industry-btn">
+<span data-zh="運動" data-en="SPORT">運動</span>
+<span class="industry-btn-arrow">→</span>
+</a>
+<a href="#" class="industry-btn">
+<span data-zh="美妝" data-en="BEAUTY">美妝</span>
+<span class="industry-btn-arrow">→</span>
+</a>
+</div>
+</section>
+<section class="contact-section">
+<h2 class="contact-headline" data-zh="準備好，重塑視覺標竿了嗎？" data-en="READY TO DISRUPT VISION?">準備好，重塑視覺標竿了嗎？</h2>
+<a href="mailto:brothergai.2022@gmail.com" class="email-link">brothergai.2022@gmail.com</a>
+<div class="contact-links">
+<a href="https://wa.me/886968886892" target="_blank" rel="noopener noreferrer" class="contact-btn">
+<svg viewBox="0 0 24 24"><path d="M12.031 0C5.394 0 .007 5.385.007 12.019c0 2.126.551 4.195 1.595 6.01L0 24l6.115-1.603c1.748.96 3.738 1.467 5.91 1.467 6.634 0 12.022-5.385 12.022-12.019C24.047 5.385 18.665 0 12.031 0zM12.03 21.841c-1.801 0-3.565-.483-5.115-1.401l-.367-.217-3.801.996 1.012-3.704-.239-.379c-1.01-1.6-1.543-3.465-1.543-5.358 0-5.525 4.5-10.021 10.027-10.021 5.523 0 10.018 4.496 10.018 10.021 0 5.523-4.495 10.021-10.018 10.021zm5.503-7.518c-.302-.151-1.785-.881-2.062-.981-.277-.101-.481-.151-.682.151-.202.302-.782.981-.958 1.182-.176.202-.354.227-.657.076-1.428-.716-2.583-1.62-3.606-2.822-.262-.309-.126-.54.024-.691.135-.136.302-.353.454-.529.151-.176.202-.302.302-.504.101-.202.05-.378-.025-.529-.076-.151-.682-1.643-.934-2.25-.246-.593-.496-.512-.682-.522l-.582-.01c-.202 0-.529.076-.806.378-.277.302-1.059 1.033-1.059 2.519 0 1.486 1.084 2.923 1.236 3.124.151.202 2.131 3.253 5.161 4.56.721.31 1.282.495 1.723.634.723.23 1.382.197 1.9.119.584-.087 1.785-.73 2.038-1.437.252-.707.252-1.31.176-1.437-.076-.126-.277-.202-.58-.353z"/></svg>
+                WhatsApp
+</a>
+<a href="https://line.me/ti/p/tfH7deB1fh" target="_blank" rel="noopener noreferrer" class="contact-btn">
+<svg viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 3.841 8.887 9.172 9.613.359.077.854.237.979.544.113.276.073.704.035 1.002-.047.369-.3 1.758-.363 2.106-.081.442-.4 2.071 1.815 1.138 2.215-.932 11.97-7.051 11.97-11.834h.392zM7.593 13.064H5.21v-5.26c0-.285-.231-.515-.515-.515-.285 0-.515.23-.515.515v5.776c0 .285.231.515.515.515h2.9c.285 0 .515-.23.515-.515 0-.285-.23-.515-.517-.515zm2.744.004c0 .284-.23.515-.515.515-.285 0-.515-.231-.515-.515v-5.776c0-.285.23-.515.515-.515.285 0 .515.23.515.515v5.776zm4.72-5.774v4.47l-3.053-4.329c-.042-.058-.094-.105-.152-.14-.061-.036-.128-.056-.197-.056-.285 0-.515.231-.515.515v5.776c0 .284.23.515.515.515.285 0 .515-.231.515-.515v-4.47l3.052 4.329c.042.059.094.106.152.14.062.037.129.056.198.056.284 0 .515-.231.515-.515V7.294c0-.285-.23-.515-.515-.515-.285 0-.515.23-.515.515zm4.846 1.745h-2.145v1.278h2.145c.285 0 .515.23.515.515 0 .285-.23.515-.515.515h-2.145v1.722h2.145c.285 0 .515.231.515.515 0 .285-.23.515-.515.515H17.25c-.285 0-.515-.231-.515-.515V7.294c0-.285.23-.515.515-.515h2.66c.285 0 .515.23.515.515 0 .285-.23.515-.515.515z"/></svg>
+                LINE Chat
+</a>
+</div>
+</section>
+<footer>
+<div class="copyright">© 2026 BROTHERG.AI</div>
+</footer>
+<script>
+const langBtn = document.getElementById('langBtn');
+const elementsToTranslate = document.querySelectorAll('[data-zh]');
+langBtn.addEventListener('click', () => {
+const currentLang = document.body.getAttribute('data-lang');
+const targetLang = currentLang === 'zh' ? 'en' : 'zh';
+document.body.setAttribute('data-lang', targetLang);
+langBtn.textContent = targetLang === 'zh' ? 'EN' : 'ZH';
+elementsToTranslate.forEach(el => {
+el.textContent = el.getAttribute(`data-${targetLang}`);
+});
+});
+</script>
+</body>
+</html>
